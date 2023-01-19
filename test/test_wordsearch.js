@@ -1,7 +1,7 @@
 const chai = require('chai');
 const assert = chai.assert;
 
-const wordSearch = require('../wordsearch.js')
+const wordSearch = require('../wordsearch.js');
 
 describe("#wordSearch()", function() {
   it("should return false if the word is not present", function() {
@@ -15,7 +15,7 @@ describe("#wordSearch()", function() {
       ['U', 'B', 'T', 'W', 'A', 'P', 'A', 'I'],
       ['O', 'D', 'C', 'A', 'K', 'U', 'A', 'S'],
       ['E', 'Z', 'K', 'F', 'Q', 'U', 'A', 'L'],
-    ], 'FRANK')
+    ], 'FRANK');
 
     assert.isFalse(result);
   });
@@ -31,8 +31,39 @@ describe("#wordSearch()", function() {
       ['U', 'B', 'T', 'W', 'A', 'P', 'A', 'I'],
       ['O', 'D', 'C', 'A', 'K', 'U', 'A', 'S'],
       ['E', 'Z', 'K', 'F', 'Q', 'U', 'A', 'L'],
-    ], 'SEINFELD')
+    ], 'SEINFELD');
 
+    assert.isTrue(result);
+  });
+  it("should return true if the word is present in vertical", function() {
+    const result = wordSearch([
+      ['A', 'W', 'C', 'A', 'Q', 'U', 'A', 'L'],
+      ['S', 'E', 'I', 'R', 'F', 'E', 'L', 'D'],
+      ['Y', 'A', 'L', 'R', 'L', 'Y', 'A', 'L'],
+      ['H', 'M', 'J', 'A', 'E', 'V', 'R', 'G'],
+      ['W', 'H', 'C', 'Y', 'Y', 'E', 'R', 'L'],
+      ['B', 'F', 'R', 'E', 'N', 'E', 'A', 'B'],
+      ['U', 'B', 'T', 'W', 'A', 'P', 'Y', 'I'],
+      ['O', 'D', 'C', 'A', 'K', 'U', 'A', 'S'],
+      ['E', 'Z', 'K', 'F', 'Q', 'U', 'A', 'L'],
+    ], 'ARRAY');
+  
+    assert.isTrue(result);
+
+  });
+  it("should return true if the word is present in reverse ", function() {
+    const result = wordSearch([
+      ['A', 'W', 'C', 'A', 'Q', 'U', 'A', 'L'],
+      ['S', 'E', 'I', 'R', 'F', 'E', 'L', 'D'],
+      ['Y', 'A', 'Y', 'A', 'R', 'R', 'A', 'L'],
+      ['H', 'M', 'J', 'A', 'E', 'V', 'R', 'G'],
+      ['W', 'H', 'C', 'Y', 'Y', 'E', 'R', 'L'],
+      ['B', 'F', 'R', 'E', 'N', 'E', 'A', 'B'],
+      ['U', 'B', 'T', 'W', 'A', 'P', 'Y', 'I'],
+      ['O', 'D', 'C', 'A', 'K', 'U', 'A', 'S'],
+      ['E', 'Z', 'K', 'F', 'Q', 'U', 'A', 'L'],
+    ], 'ARRAY');
+  
     assert.isTrue(result);
   });
 });
